@@ -3,12 +3,12 @@ import {
   Box,
   Flex,
   Input,
-  Text,
   Image,
   InputGroup,
   InputLeftElement,
 } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
+import ToggleDarkMode from "./ToggleDarkMode";
 
 const NavigationBar = () => {
   return (
@@ -36,9 +36,10 @@ const NavigationBar = () => {
           border="none"
           type="text"
           placeholder="Search games..."
+          _placeholder={{ color: "gray.100" }}
         />
       </InputGroup>
-      <Text h="100%">Toggle Darkmode</Text>
+      <ToggleDarkMode />
     </Flex>
   );
 };
