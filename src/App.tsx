@@ -14,10 +14,8 @@ function App() {
         lg: `14rem 1fr`,
       }}
       h="100vh"
-      color="blackAlpha.700"
       fontWeight="bold"
       p="0.5rem"
-      bg="blackAlpha.900"
     >
       <GridItem area={"nav"}>
         <NavigationBar />
