@@ -8,6 +8,7 @@ const SearchBar = () => {
         <SearchIcon color="gray.100" boxSize={5} />
       </InputLeftElement>
       <Input
+        id="search"
         h="100%"
         flex="1"
         bg="gray.500"
