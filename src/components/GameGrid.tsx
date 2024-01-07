@@ -9,7 +9,7 @@ const GameGrid = () => {
     <>
       {error && <Text color={"red.400"}>{error}</Text>}
       <SimpleGrid
-        columns={{ base: 1, md: 2, lg: 3, xl: 5 }}
+        columns={{ base: 1, md: 2, xl: 3, "2xl": 5 }}
         spacing={5}
         p={5}
         justifyItems="center"
