@@ -6,7 +6,7 @@ export interface Game {
     id: number,
     name: string
     background_image: string;
-    platforms: [ { platform: { name: string } } ];
+    parent_platforms: { platform: { name: string } }[];
 }
 
 interface FetchGamesResponse{

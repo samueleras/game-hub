@@ -11,8 +11,8 @@ const GameCard = ({ game }: Props) => {
       <Image src={game.background_image} alt={game.name} />
       <CardBody>
         <Stack mt="0" spacing="3">
-          {game.platforms.map((item) => (
-            <Text key={item.platform.name}>{item.platform.name}</Text>
+          {game.parent_platforms.map(({ platform }) => (
+            <Text key={platform.name}>{platform.name}</Text>
           ))}
           <Heading size="lg">{game.name}</Heading>
         </Stack>
