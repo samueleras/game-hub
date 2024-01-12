@@ -13,7 +13,7 @@ function App() {
       gridTemplateRows={"3rem 1fr"}
       gridTemplateColumns={{
         base: `1fr`,
-        lg: `14rem 1fr`,
+        lg: `12rem 1fr`,
       }}
       h="100vh"
       fontWeight="bold"
@@ -22,10 +22,15 @@ function App() {
       <GridItem area={"nav"}>
         <NavigationBar />
       </GridItem>
-      <GridItem area={"aside"} display={{ base: "none", lg: "block" }}>
+      <GridItem
+        area={"aside"}
+        display={{ base: "none", lg: "block" }}
+        paddingX={2}
+        paddingTop={3}
+      >
         <GenreList />
       </GridItem>
-      <GridItem area={"main"}>
+      <GridItem area={"main"} paddingTop={3}>
         <GameGrid />
       </GridItem>
     </Grid>

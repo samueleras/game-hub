@@ -13,12 +13,13 @@ const GameGrid = () => {
       <SimpleGrid
         columns={{ base: 1, md: 2, xl: 3, "2xl": 5 }}
         spacing={5}
-        p={5}
+        padding={{ base: 1, md: 2, xl: 5 }}
         justifyItems="center"
       >
-        {games.map((game: Game) => (
-          <GameCard game={game} key={game.id} />
-        ))}
+        {games.map((game: Game) => {
+          if (game.genres[0].slug == "adventure")
+            return <GameCard game={game} key={game.id} />;
+        })}
         {isLoading &&
           skeletons.map((skeleton) => <GameCardSkeleton key={skeleton} />)}
       </SimpleGrid>
