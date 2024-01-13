@@ -12,7 +12,6 @@ function App() {
   const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(
     null
   );
-  console.log(selectedPlatform);
   return (
     <Grid
       templateAreas={{
@@ -43,7 +42,10 @@ function App() {
         />
       </GridItem>
       <GridItem area={"main"} paddingTop={3}>
-        <PlatformSelector onSelectPlatform={setSelectedPlatform} />
+        <PlatformSelector
+          onSelectPlatform={setSelectedPlatform}
+          selectedPlatform={selectedPlatform}
+        />
         <GameGrid
           selectedGenre={selectedGenre}
           selectedPlatform={selectedPlatform}
