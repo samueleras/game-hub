@@ -1,10 +1,6 @@
 import useData from "./useData";
+import { Platform } from "./useGames";
 
-export interface Platform {
-    name: string;
-    id: number;
-    slug: string;
-}
 
 const useGenres = () => {
     const { data, error, isLoading} = useData<Platform>('/platforms/lists/parents');
