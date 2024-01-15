@@ -11,12 +11,11 @@ const SearchBar = () => {
         id="search"
         h="100%"
         flex="1"
-        bg="gray.500"
+        variant="filled"
         borderRadius="2rem"
         border="none"
         type="text"
         placeholder="Search games..."
-        _placeholder={{ color: "gray.100" }}
       />
     </InputGroup>
   );
