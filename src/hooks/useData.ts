@@ -23,6 +23,7 @@ const useData = <T>(endpoint: string, requestConfig?: AxiosRequestConfig, deps?:
         })
         .then((res) => {
           setData(res.data.results);
+          setError('');
           setIsLoading(false);
         })
         .catch((err) => {
