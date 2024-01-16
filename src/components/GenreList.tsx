@@ -1,5 +1,5 @@
 import useGenres, { Genre } from "../hooks/useGenres";
-import { Image, Flex, Button, Spinner } from "@chakra-ui/react";
+import { Image, Flex, Button, Spinner, Heading } from "@chakra-ui/react";
 import getCroppedImageUrl from "../services/image-url";
 
 interface Props {
@@ -15,6 +15,9 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
 
   return (
     <>
+      <Heading as="h2" size="lg">
+        Genres
+      </Heading>
       {genres.map((genre) => (
         <Flex
           key={genre.id}
