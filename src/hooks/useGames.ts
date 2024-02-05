@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { GameQuery } from "../App";
-import apiClient, { FetchDataResponse } from "../services/api-client";
+import APIClient, { FetchDataResponse } from "../services/api-client";
 import { Platform } from "./useParentPlatforms";
 
 export interface Game {
@@ -13,38 +13,20 @@ export interface Game {
   rating_top: number;
 }
 
-/* const useGames = (gameQuery: GameQuery) => {
-  const { data, error, isLoading } = useData<Game>(
-    "/games",
-    {
-      params: {
-        genres: gameQuery.genre?.id,
-        parent_platforms: gameQuery.platform?.id,
-        ordering: gameQuery.sortOrder,
-        search: gameQuery.searchTerm,
-      },
-    },
-    [gameQuery]
-  );
-  const games = data;
-
-  return { games, error, isLoading };
-}; */
-
 const useGames = (gameQuery: GameQuery) =>
   useQuery<FetchDataResponse<Game>>({
     queryKey: ["games", gameQuery],
-    queryFn: () =>
-      apiClient
-        .get<FetchDataResponse<Game>>("/games", {
-          params: {
-            genres: gameQuery.genre?.id,
-            parent_platforms: gameQuery.platform?.id,
-            ordering: gameQuery.sortOrder,
-            search: gameQuery.searchTerm,
-          },
-        })
-        .then((res) => res.data),
+    queryFn: () => {
+      let client: APIClient<Game> = new APIClient("/games");
+      return client.getAll({
+        params: {
+          genres: gameQuery.genre?.id,
+          parent_platforms: gameQuery.platform?.id,
+          ordering: gameQuery.sortOrder,
+          search: gameQuery.searchTerm,
+        },
+      });
+    },
     staleTime: 5 * 60 * 1000, //5min
   });
 
