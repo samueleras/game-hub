@@ -9,10 +9,10 @@ interface Props {
 }
 
 const GameGrid = ({ gameQuery }: Props) => {
-  const { games, error, isLoading } = useGames(gameQuery);
+  const { data: games, error, isLoading } = useGames(gameQuery);
   const skeletons = Array.from(Array(20).keys());
 
-  if (error) return <Text color={"red.400"}>{error}</Text>;
+  if (error) return <Text color={"red.400"}>{error.message}</Text>;
 
   return (
     <SimpleGrid
@@ -23,7 +23,7 @@ const GameGrid = ({ gameQuery }: Props) => {
     >
       {isLoading &&
         skeletons.map((skeleton) => <GameCardSkeleton key={skeleton} />)}
-      {games.map((game: Game) => {
+      {games?.results.map((game: Game) => {
         return <GameCard game={game} key={game.id} />;
       })}
     </SimpleGrid>
