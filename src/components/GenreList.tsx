@@ -8,9 +8,9 @@ interface Props {
 }
 
 const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
-  const { genres, isLoading, error } = useGenres();
+  const { data: genres, error, isLoading } = useGenres();
 
-  if (error) return null;
+  if (error) return <p>{error.message}</p>;
   if (isLoading) return <Spinner size="lg" marginTop={3} />;
 
   return (
@@ -18,7 +18,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
       <Heading as="h2" size="lg">
         Genres
       </Heading>
-      {genres.map((genre) => (
+      {genres?.results.map((genre) => (
         <Flex
           key={genre.id}
           alignItems={"center"}

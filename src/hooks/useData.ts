@@ -1,29 +1,33 @@
 import { useEffect, useState } from "react";
-import apiClient from "../services/api-client"
+import apiClient from "../services/api-client";
 import { AxiosRequestConfig, CanceledError } from "axios";
 
-
-interface FetchDataResponse<T>{
-    count: number;
-    results: T[];
+export interface FetchDataResponse<T> {
+  count: number;
+  results: T[];
 }
 
-const useData = <T>(endpoint: string, requestConfig?: AxiosRequestConfig, deps?: any[]) => {
-    const [data, setData] = useState<T[]>([]);
-    const [error, setError] = useState("");
-    const [isLoading, setIsLoading] = useState(false);
+const useData = <T>(
+  endpoint: string,
+  requestConfig?: AxiosRequestConfig,
+  deps?: any[]
+) => {
+  const [data, setData] = useState<T[]>([]);
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-    useEffect(() => {
+  useEffect(
+    () => {
       const controller = new AbortController();
       setIsLoading(true);
       apiClient
         .get<FetchDataResponse<T>>(endpoint, {
-            signal: controller.signal,
-            ...requestConfig
+          signal: controller.signal,
+          ...requestConfig,
         })
         .then((res) => {
           setData(res.data.results);
-          setError('');
+          setError("");
           setIsLoading(false);
         })
         .catch((err) => {
@@ -31,11 +35,13 @@ const useData = <T>(endpoint: string, requestConfig?: AxiosRequestConfig, deps?:
           setError(err.message);
           setIsLoading(false);
         });
-  
+
       return () => controller.abort();
-    }, deps ? [...deps] : []);
+    },
+    deps ? [...deps] : []
+  );
 
-    return { data, error, isLoading };
-}
+  return { data, error, isLoading };
+};
 
-export default useData
+export default useData;
