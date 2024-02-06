@@ -20,8 +20,8 @@ const useGames = (gameQuery: GameQuery) =>
       let client: APIClient<Game> = new APIClient("/games");
       return client.getAll({
         params: {
-          genres: gameQuery.genre?.id,
-          parent_platforms: gameQuery.platform?.id,
+          genres: gameQuery.genreId,
+          parent_platforms: gameQuery.platformId,
           ordering: gameQuery.sortOrder,
           search: gameQuery.searchTerm,
           page: pageParam,
