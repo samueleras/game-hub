@@ -1,13 +1,9 @@
 import { AspectRatio, Box, Flex, Image } from "@chakra-ui/react";
-import SearchBar from "./SearchBar";
 import logo from "../assets/logo.jpg";
 import DarkModeSwitch from "./DarkModeSwitch";
+import SearchBar from "./SearchBar";
 
-interface Props {
-  onSearch: (searchTerm: string) => void;
-}
-
-const NavigationBar = ({ onSearch }: Props) => {
+const NavigationBar = () => {
   return (
     <Flex gap="1rem" flexShrink={0} w="100%" h="100%">
       <Box w="3rem" flexShrink={0}>
@@ -20,7 +16,7 @@ const NavigationBar = ({ onSearch }: Props) => {
           />
         </AspectRatio>
       </Box>
-      <SearchBar onSearch={onSearch} />
+      <SearchBar />
       <DarkModeSwitch />
     </Flex>
   );

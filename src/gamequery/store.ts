@@ -10,11 +10,11 @@ export interface GameQuery {
 
 interface GameQueryStore {
   gameQuery: GameQuery;
-  setGenreId: (genreId: number) => void;
-  setPlatformId: (platformId: number) => void;
-  setSortOrder: (sortOrder: string) => void;
-  setSearchText: (searchText: string) => void;
-  setPageSize: (pageSize: number) => void;
+  setGenreId: (genreId?: number) => void;
+  setPlatformId: (platformId?: number) => void;
+  setSortOrder: (sortOrder?: string) => void;
+  setSearchText: (searchText?: string) => void;
+  setPageSize: (pageSize?: number) => void;
 }
 
 const useGameQueryStore = create<GameQueryStore>((set) => ({
