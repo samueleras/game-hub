@@ -25,7 +25,7 @@ const SortSelector = () => {
         {sortOrders.map((sortOrder) => {
           return (
             <MenuItem
-              key={sortOrder.value}
+              key={sortOrder.value || "default"}
               onClick={() => setSortOrder(sortOrder.value)}
             >
               {sortOrder.name}

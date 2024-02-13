@@ -1,17 +1,16 @@
 import { Box, Flex, Grid, GridItem } from "@chakra-ui/react";
-import GameGrid from "./components/GameGrid";
-import GameHeading from "./components/GameHeading";
-import GenreList from "./components/GenreList";
-import NavigationBar from "./components/NavigationBar";
-import PlatformSelector from "./components/PlatformSelector";
-import SortSelector from "./components/SortSelector";
+import GenreList from "../components/GenreList";
+import GameHeading from "../components/GameHeading";
+import GameGrid from "../components/GameGrid";
+import PlatformSelector from "../components/PlatformSelector";
+import SortSelector from "../components/SortSelector";
 
 function App() {
   return (
     <Grid
       templateAreas={{
-        base: `"nav" "main"`,
-        lg: `"nav nav" "aside main"`,
+        base: ` "main"`,
+        lg: `"aside main"`,
       }}
       gridTemplateColumns={{
         base: `1fr`,
@@ -21,9 +20,6 @@ function App() {
       fontWeight="bold"
       p="0.5rem"
     >
-      <GridItem area={"nav"}>
-        <NavigationBar />
-      </GridItem>
       <GridItem
         area={"aside"}
         display={{ base: "none", lg: "block" }}

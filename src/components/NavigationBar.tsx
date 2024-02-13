@@ -5,7 +5,7 @@ import SearchBar from "./SearchBar";
 
 const NavigationBar = () => {
   return (
-    <Flex gap="1rem" flexShrink={0} w="100%" h="100%">
+    <Flex gap="1rem" flexShrink={0} alignItems="center" padding="0.5rem">
       <Box w="3rem" flexShrink={0}>
         <AspectRatio h="100%" ratio={1}>
           <Image

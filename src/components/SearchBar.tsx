@@ -9,6 +9,7 @@ const SearchBar = () => {
 
   return (
     <form
+      style={{ height: "100%" }}
       onSubmit={(event) => {
         event.preventDefault();
         if (!ref.current?.value) {
@@ -19,14 +20,12 @@ const SearchBar = () => {
         }
       }}
     >
-      <InputGroup height={"100%"}>
-        <InputLeftElement pointerEvents="none" h="100%">
+      <InputGroup>
+        <InputLeftElement pointerEvents="none">
           <SearchIcon color="gray.100" boxSize={5} />
         </InputLeftElement>
         <Input
           ref={ref}
-          flex="1"
-          height={"100%"}
           variant="filled"
           borderRadius="2rem"
           border="none"
