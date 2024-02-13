@@ -18,7 +18,6 @@ function App() {
       }}
       h="100vh"
       fontWeight="bold"
-      p="0.5rem"
     >
       <GridItem
         area={"aside"}
