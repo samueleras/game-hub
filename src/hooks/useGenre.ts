@@ -14,7 +14,7 @@ const useGenre = (id?: number) =>
     queryKey: ["genre", id],
     queryFn: () => {
       let client: APIClient<Genre> = new APIClient(`/genres`);
-      return client.getItem(id);
+      return client.get(id);
     },
     staleTime: ms("24h"),
     initialData: genres.results.find((genre) => genre.id === id),

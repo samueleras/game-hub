@@ -25,10 +25,10 @@ class APIClient<T> {
       .get<FetchDataResponse<T>>(this.endpoint, config)
       .then((res) => res.data);
 
-  getItem = (id?: number, config?: AxiosRequestConfig) => {
-    if (id === undefined) return null as T;
+  get = (idOrSlug?: number | string, config?: AxiosRequestConfig) => {
+    if (idOrSlug === undefined) return null as T;
     return axiosInstance
-      .get<T>(this.endpoint + "/" + id, config)
+      .get<T>(this.endpoint + "/" + idOrSlug, config)
       .then((res) => res.data);
   };
 }
