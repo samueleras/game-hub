@@ -2,10 +2,12 @@ import { SearchIcon } from "@chakra-ui/icons";
 import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
 import { useRef } from "react";
 import useGameQueryStore from "../gamequery/store";
+import { useNavigate } from "react-router-dom";
 
 const SearchBar = () => {
   const setSearchText = useGameQueryStore((s) => s.setSearchText);
   const ref = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
 
   return (
     <form
@@ -18,6 +20,7 @@ const SearchBar = () => {
         } else {
           setSearchText(ref.current.value);
         }
+        navigate("/");
       }}
     >
       <InputGroup>
