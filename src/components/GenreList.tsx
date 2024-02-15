@@ -39,9 +39,6 @@ const GenreList = () => {
                 variant="link"
                 whiteSpace="normal"
                 textAlign="left"
-                textDecoration={
-                  selectedGenreId === genre.id ? "underline" : "none"
-                }
                 fontWeight={selectedGenreId === genre.id ? "bold" : "normal"}
                 onClick={() => setSelectedGenreId(genre.id)}
               >
@@ -49,7 +46,11 @@ const GenreList = () => {
               </Button>
             </Flex>
             {selectedGenreId === genre.id && (
-              <CloseIcon onClick={() => setSelectedGenreId(undefined)} />
+              <CloseIcon
+                boxSize={3.5}
+                cursor="pointer"
+                onClick={() => setSelectedGenreId(undefined)}
+              />
             )}
           </Flex>
         </>

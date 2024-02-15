@@ -1,7 +1,8 @@
 import { Box, Flex, Grid, GridItem } from "@chakra-ui/react";
-import GenreList from "../components/GenreList";
-import GameHeading from "../components/GameHeading";
 import GameGrid from "../components/GameGrid";
+import GameHeading from "../components/GameHeading";
+import GenreList from "../components/GenreList";
+import GenreSelector from "../components/GenreSelector";
 import PlatformSelector from "../components/PlatformSelector";
 import SortSelector from "../components/SortSelector";
 
@@ -30,9 +31,12 @@ function App() {
       <GridItem area={"main"} paddingTop={3}>
         <Box paddingLeft={{ base: 1, md: 2, xl: 5 }}>
           <GameHeading />
-          <Flex gap="0.5rem" marginBottom={3}>
+          <Flex gap="0.5rem" marginBottom={3} flexWrap="wrap">
             <PlatformSelector />
             <SortSelector />
+            <Box display={{ base: "block", lg: "none" }}>
+              <GenreSelector />
+            </Box>
           </Flex>
         </Box>
         <GameGrid />
