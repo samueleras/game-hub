@@ -26,7 +26,7 @@ class APIClient<T> {
       .then((res) => res.data);
 
   get = (idOrSlug?: number | string, config?: AxiosRequestConfig) => {
-    if (idOrSlug === undefined) return null as T;
+    if (idOrSlug === undefined) return {} as T;
     return axiosInstance
       .get<T>(this.endpoint + "/" + idOrSlug, config)
       .then((res) => res.data);
