@@ -19,7 +19,7 @@ const GamePage = () => {
   return (
     <Grid templateColumns={{ base: "1fr", md: "1fr 1fr" }} gap={5}>
       <GridItem>
-        <Heading>{game.name}</Heading>
+        <Heading marginBottom={5}>{game.name}</Heading>
         <ExpandableText>{game.description_raw}</ExpandableText>
         <GameAttributes game={game} />
       </GridItem>
