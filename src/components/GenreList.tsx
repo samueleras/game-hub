@@ -1,8 +1,8 @@
-import { Box, Button, Flex, Heading, Image, Spinner } from "@chakra-ui/react";
+import { CloseIcon } from "@chakra-ui/icons";
+import { Button, Flex, Heading, Image, Spinner } from "@chakra-ui/react";
 import useGameQueryStore from "../gamequery/store";
 import useGenres from "../hooks/useGenres";
 import getCroppedImageUrl from "../services/image-url";
-import { CloseIcon } from "@chakra-ui/icons";
 
 const GenreList = () => {
   const { data: genres, error, isLoading } = useGenres();
