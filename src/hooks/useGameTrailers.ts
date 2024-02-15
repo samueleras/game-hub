@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import ms from "ms";
-import { GameTrailer } from "../entities/GameTrailer";
+import GameTrailer from "../entities/GameTrailer";
 import APIClient, { FetchDataResponse } from "../services/apiClient";
 
 const useGameTrailers = (gameId: string | number) => {
